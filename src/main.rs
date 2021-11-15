@@ -99,7 +99,7 @@ type DBConnection = OpenSearch;
 
 #[get("/")]
 async fn index(_conn: web::Data<DBConnection>) -> impl Responder {
-    format!("Let's try actix-web + opensearch!")
+    "Let's try actix-web + opensearch!".to_string()
 }
 
 async fn search_onsen(
@@ -107,7 +107,7 @@ async fn search_onsen(
     query: web::Query<SearchQuery>,
 ) -> impl Responder {
     println!("search_onsen, query: {:?}", &query);
-    let result = match query.query.as_ref().map(|s| s.as_str()) {
+    let result = match query.query.as_deref().map(|s| s) {
         None | Some("") => {
             conn.get_ref()
                 .search(SearchParts::Index(&["onsen"]))
@@ -270,7 +270,7 @@ async fn start(conn: DBConnection) -> std::io::Result<()>
         // For each worker
         println!("setup worker");
         App::new()
-            .data(conn.clone())
+            .app_data(conn.clone())
             .service(index)
             .service(web::scope("/onsen")
                      .route("/", web::get().to(search_onsen))
@@ -317,14 +317,14 @@ async fn setup_index(client: OpenSearch) {
 }
 
 fn main() {
-  let esclient =
-      Url::parse("http://opensearch:9200")
+  let client =
+      Url::parse("http://localhost:9200")
       .map_err(|e| format!("Failed to parse url: {}", &e))
       .and_then(|url|
                 create_opensearch_client(url)
                 .map_err(|e| format!("Failed to create \
                                       elasticsearch client: {}", &e)));
-  match esclient {
+  match client {
       Err(e) => {
           println!("Failed to parse url: {}", &e);
       },
