@@ -27,7 +27,7 @@ jobs:
           CARGO_INCREMENTAL: "0"
           RUSTFLAGS: "-Zprofile -Ccodegen-units=1 -Cinline-threshold=0 -Clink-dead-code -Coverflow-checks=off"
       - name: Cache grcov
-        uses: actions/cache@v3.2.0
+        uses: actions/cache@v3.2.2
         with:
           path: ~/.cargo/bin/grcov
           key: ${{ runner.os }}-grcov
