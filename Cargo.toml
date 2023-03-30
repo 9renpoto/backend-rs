@@ -11,7 +11,7 @@ opensearch = { git = "https://github.com/opensearch-project/opensearch-rs" }
 serde = "1.0.151"
 serde_json = "1.0.93"
 url = "2.3.1"
-futures = "0.3.26"
+futures = "0.3.28"
 
 [dev-dependencies.cargo-husky]
 version = "1"
