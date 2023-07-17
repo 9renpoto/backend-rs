@@ -10,6 +10,5 @@ jobs:
       - uses: streetsidesoftware/cspell-action@v2
         with:
           files: |
-            {apps,packages}/**/*.{ts,js}
-            !dist/**/*.{ts,js}
+            src/**/*.rs
           incremental_files_only: false
