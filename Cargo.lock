@@ -1294,22 +1294,22 @@ dependencies = [
 
 [[package]]
 name = "serde"
-version = "1.0.151"
+version = "1.0.172"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "97fed41fc1a24994d044e6db6935e69511a1153b52c15eb42493b26fa87feba0"
+checksum = "3c489e660549c5f25abb5e7a546a9de2ea437072d7d6f8d8c993ceab4e76be14"
 dependencies = [
  "serde_derive",
 ]
 
 [[package]]
 name = "serde_derive"
-version = "1.0.151"
+version = "1.0.172"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "255abe9a125a985c05190d687b320c12f9b1f0b99445e608c21ba0782c719ad8"
+checksum = "d37fc147b26555e4a092321832edb03124603c0a456c449ecb589ed05bf91f89"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 1.0.105",
+ "syn 2.0.26",
 ]
 
 [[package]]
