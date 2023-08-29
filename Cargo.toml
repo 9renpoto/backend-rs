@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 actix-rt = "2.9.0"
-actix-web = "4.3.1"
+actix-web = "4.4.0"
 opensearch = { git = "https://github.com/opensearch-project/opensearch-rs" }
 serde = "1.0.188"
 serde_json = "1.0.105"
